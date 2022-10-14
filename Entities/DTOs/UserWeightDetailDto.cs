@@ -6,7 +6,7 @@ using Core.Entities.Abstract;
 
 namespace Entities.DTOs
 {
-    public class UserWeightDto : IDto
+    public class UserWeightDetailDto : IDto
     {
         public int Id { get; set; }
         public int UserId { get; set; }
