@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Collaboration collaboration)
+        public IActionResult Add([FromForm] IFormFile file, [FromForm] Collaboration collaboration)
         {
-            var result = _collaborationService.Add(collaboration);
+            var result = _collaborationService.Add(file, collaboration);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Collaboration collaboration)
+        public IActionResult Update([FromForm] IFormFile file, [FromForm] Collaboration collaboration)
         {
-            var result = _collaborationService.Update(collaboration);
+            var result = _collaborationService.Update(file, collaboration);
             if (result.Success)
             {
                 return Ok(result);

@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Gallery gallery)
+        public IActionResult Add([FromForm] IFormFile file, [FromForm] Gallery gallery)
         {
-            var result = _galleryService.Add(gallery);
+            var result = _galleryService.Add(file, gallery);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Gallery gallery)
+        public IActionResult Update([FromForm] IFormFile file, [FromForm] Gallery gallery)
         {
-            var result = _galleryService.Update(gallery);
+            var result = _galleryService.Update(file, gallery);
             if (result.Success)
             {
                 return Ok(result);

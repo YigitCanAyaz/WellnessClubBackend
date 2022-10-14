@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,8 +11,8 @@ namespace Business.Abstract
     {
         IDataResult<Collaboration> GetById(int id);
         IDataResult<List<Collaboration>> GetAll();
-        IResult Add(Collaboration collaboration);
-        IResult Update(Collaboration collaboration);
+        IResult Add(IFormFile file, Collaboration collaboration);
+        IResult Update(IFormFile file, Collaboration collaboration);
         IResult Delete(Collaboration collaboration);
         IDataResult<int> GetAllCollaborationLength();
     }

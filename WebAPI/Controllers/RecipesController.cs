@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Recipe recipe)
+        public IActionResult Add([FromForm] IFormFile file, [FromForm] Recipe recipe)
         {
-            var result = _recipeService.Add(recipe);
+            var result = _recipeService.Add(file, recipe);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Recipe recipe)
+        public IActionResult Update([FromForm] IFormFile file, [FromForm] Recipe recipe)
         {
-            var result = _recipeService.Update(recipe);
+            var result = _recipeService.Update(file, recipe);
             if (result.Success)
             {
                 return Ok(result);

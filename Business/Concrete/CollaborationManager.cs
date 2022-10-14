@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
+using Microsoft.AspNetCore.Http;
+using Core.Utilities.Helpers;
 
 namespace Business.Concrete
 {
@@ -23,8 +25,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("ICollaborationService.GetAll")]
         [ValidationAspect(typeof(CollaborationValidator))]
-        public IResult Add(Collaboration collaboration)
+        public IResult Add(IFormFile file, Collaboration collaboration)
         {
+            var imageResult = FileHelper.Upload(file);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            collaboration.ImagePath = imageResult.Message;
+
             _collaborationDal.Add(collaboration);
             return new SuccessResult(Messages.CollaborationCreated);
         }
@@ -56,8 +67,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("ICollaborationService.Get")]
         [ValidationAspect(typeof(CollaborationValidator))]
-        public IResult Update(Collaboration collaboration)
+        public IResult Update(IFormFile file, Collaboration collaboration)
         {
+            var imageResult = FileHelper.Update(file, collaboration.ImagePath);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            collaboration.ImagePath = imageResult.Message;
+
             _collaborationDal.Update(collaboration);
             return new SuccessResult(Messages.CollaborationUpdated);
         }

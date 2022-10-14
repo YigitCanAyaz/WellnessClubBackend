@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
+using Microsoft.AspNetCore.Http;
+using Core.Utilities.Helpers;
 
 namespace Business.Concrete
 {
@@ -23,8 +25,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IGalleryService.GetAll")]
         [ValidationAspect(typeof(GalleryValidator))]
-        public IResult Add(Gallery gallery)
+        public IResult Add(IFormFile file, Gallery gallery)
         {
+            var imageResult = FileHelper.Upload(file);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            gallery.ImagePath = imageResult.Message;
+
             _galleryDal.Add(gallery);
             return new SuccessResult(Messages.GalleryCreated);
         }
@@ -56,8 +67,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IGalleryService.Get")]
         [ValidationAspect(typeof(GalleryValidator))]
-        public IResult Update(Gallery gallery)
+        public IResult Update(IFormFile file, Gallery gallery)
         {
+            var imageResult = FileHelper.Update(file, gallery.ImagePath);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            gallery.ImagePath = imageResult.Message;
+
             _galleryDal.Update(gallery);
             return new SuccessResult(Messages.GalleryUpdated);
         }

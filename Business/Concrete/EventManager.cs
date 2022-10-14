@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
+using Core.Utilities.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
@@ -23,8 +25,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IEventService.GetAll")]
         [ValidationAspect(typeof(EventValidator))]
-        public IResult Add(Event evt)
+        public IResult Add(IFormFile file, Event evt)
         {
+            var imageResult = FileHelper.Upload(file);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            evt.ImagePath = imageResult.Message;
+
             _evtDal.Add(evt);
             return new SuccessResult(Messages.EventCreated);
         }
@@ -56,8 +67,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IEventService.Get")]
         [ValidationAspect(typeof(EventValidator))]
-        public IResult Update(Event evt)
+        public IResult Update(IFormFile file, Event evt)
         {
+            var imageResult = FileHelper.Update(file, evt.ImagePath);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            evt.ImagePath = imageResult.Message;
+
             _evtDal.Update(evt);
             return new SuccessResult(Messages.EventUpdated);
         }

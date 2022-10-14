@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
+using Core.Utilities.Helpers;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
@@ -23,8 +25,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IRecipeService.GetAll")]
         [ValidationAspect(typeof(RecipeValidator))]
-        public IResult Add(Recipe recipe)
+        public IResult Add(IFormFile file, Recipe recipe)
         {
+            var imageResult = FileHelper.Upload(file);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            recipe.ImagePath = imageResult.Message;
+
             _recipeDal.Add(recipe);
             return new SuccessResult(Messages.RecipeCreated);
         }
@@ -56,8 +67,17 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("IRecipeService.Get")]
         [ValidationAspect(typeof(RecipeValidator))]
-        public IResult Update(Recipe recipe)
+        public IResult Update(IFormFile file, Recipe recipe)
         {
+            var imageResult = FileHelper.Update(file, recipe.ImagePath);
+
+            if (!imageResult.Success)
+            {
+                return imageResult;
+            }
+
+            recipe.ImagePath = imageResult.Message;
+
             _recipeDal.Update(recipe);
             return new SuccessResult(Messages.RecipeUpdated);
         }

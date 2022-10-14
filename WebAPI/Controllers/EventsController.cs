@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Event evt)
+        public IActionResult Add([FromForm] IFormFile file, [FromForm] Event evt)
         {
-            var result = _evtService.Add(evt);
+            var result = _evtService.Add(file, evt);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Event evt)
+        public IActionResult Update([FromForm] IFormFile file, [FromForm] Event evt)
         {
-            var result = _evtService.Update(evt);
+            var result = _evtService.Update(file, evt);
             if (result.Success)
             {
                 return Ok(result);
