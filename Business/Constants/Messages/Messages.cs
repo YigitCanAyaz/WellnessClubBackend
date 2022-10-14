@@ -64,5 +64,12 @@ namespace Business.Constants.Messages
         public static string GalleryCreated = "Galeri eklendi";
         public static string GalleryUpdated = "Galeri güncellendi";
         public static string GalleryDeleted = "Galeri silindi";
+
+        // Auth Manager
+        public static string UserRegistered = "Kullanıcı yaratıldı";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Şifre hatalı";
+        public static string SuccessfulLogin = "Başarılı giriş";
+        public static string UserAlreadyExists = "Bu Kullanıcı zaten bulunmakta";
     }
 }

@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalleventlength")]
+        [HttpGet("getallheightlength")]
         public IActionResult GetAllHeightLength()
         {
             var result = _heightService.GetAllHeightLength();

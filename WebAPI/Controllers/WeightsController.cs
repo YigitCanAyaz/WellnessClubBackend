@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalleventlength")]
+        [HttpGet("getallweightlength")]
         public IActionResult GetAllWeightLength()
         {
             var result = _weightService.GetAllWeightLength();

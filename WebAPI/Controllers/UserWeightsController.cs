@@ -76,6 +76,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getalluserweightlength")]
+        public IActionResult GetAllRecipeLength()
+        {
+            var result = _userWeightService.GetAllUserWeightLength();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
 
         [HttpGet("getalluserweightdetails")]
         public IActionResult GetAllUserWeightDetails()

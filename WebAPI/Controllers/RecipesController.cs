@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalleventlength")]
+        [HttpGet("getallrecipelength")]
         public IActionResult GetAllRecipeLength()
         {
             var result = _recipeService.GetAllRecipeLength();

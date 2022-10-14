@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalleventlength")]
+        [HttpGet("getallcollaborationlength")]
         public IActionResult GetAllCollaborationLength()
         {
             var result = _collaborationService.GetAllCollaborationLength();

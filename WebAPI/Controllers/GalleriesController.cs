@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getalleventlength")]
+        [HttpGet("getallgallerylength")]
         public IActionResult GetAllGalleryLength()
         {
             var result = _galleryService.GetAllGalleryLength();

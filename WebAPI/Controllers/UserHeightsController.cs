@@ -76,6 +76,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getalluserheightlength")]
+        public IActionResult GetAllRecipeLength()
+        {
+            var result = _userHeightService.GetAllUserHeightLength();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
 
         [HttpGet("getalluserheightdetails")]
         public IActionResult GetAllUserHeightDetails()
