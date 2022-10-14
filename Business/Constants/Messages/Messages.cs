@@ -12,18 +12,57 @@ namespace Business.Constants.Messages
         public static string AuthorizationDenied = "Yetkinlik Yok!";
 
         // OperationClaim Manager
-        public static string OperationClaimCreated = "OperationClaim created";
-        public static string OperationClaimUpdated = "OperationClaim updated";
-        public static string OperationClaimDeleted = "OperationClaim deleted";
+        public static string OperationClaimCreated = "Rol eklendi";
+        public static string OperationClaimUpdated = "Rol güncellendi";
+        public static string OperationClaimDeleted = "Rol silindi";
 
         // UserOperationClaim Manager
-        public static string UserOperationClaimCreated = "UserOperationClaim created";
-        public static string UserOperationClaimUpdated = "UserOperationClaim updated";
-        public static string UserOperationClaimDeleted = "UserOperationClaim deleted";
+        public static string UserOperationClaimCreated = "Kullanıcı rolü eklendi";
+        public static string UserOperationClaimUpdated = "Kullanıcı rolü güncellendi";
+        public static string UserOperationClaimDeleted = "Kullanıcı rolü silindi";
 
+        // UserWeight Manager
+        public static string UserWeightCreated = "Kullanıcı kilosu eklendi";
+        public static string UserWeightUpdated = "Kullanıcı kilosu güncellendi";
+        public static string UserWeightDeleted = "Kullanıcı kilosu delsilindieted";
+
+        // UserHeight Manager
+        public static string UserHeightCreated = "Kullanıcı boyu eklendi";
+        public static string UserHeightUpdated = "Kullanıcı boyu güncellendi";
+        public static string UserHeightDeleted = "Kullanıcı boyu silindi";
 
         // User Manager
-        public static string UserCreated = "User created";
-        public static string AccessTokenCreated = "Access token is created";
+        public static string UserCreated = "Kullanıcı yaratıldı";
+        public static string AccessTokenCreated = "Token yaratıldı";
+
+        // Weight Manager
+        public static string WeightCreated = "Kilo eklendi";
+        public static string WeightUpdated = "Kilo güncellendi";
+        public static string WeightDeleted = "Kilo silindi";
+
+        // Height Manager
+        public static string HeightCreated = "Boy eklendi";
+        public static string HeightUpdated = "Boy güncellendi";
+        public static string HeightDeleted = "Boy silindi";
+
+        // Recipe Manager
+        public static string RecipeCreated = "Tarif eklendi";
+        public static string RecipeUpdated = "Tarif güncellendi";
+        public static string RecipeDeleted = "Tarif silindi";
+
+        // Collaboration Manager
+        public static string CollaborationCreated = "İşbirliği eklendi";
+        public static string CollaborationUpdated = "İşbirliği güncellendi";
+        public static string CollaborationDeleted = "İşbirliği silindi";
+
+        // Event Manager
+        public static string EventCreated = "Etkinlik eklendi";
+        public static string EventUpdated = "Etkinlik güncellendi";
+        public static string EventDeleted = "Etkinlik silindi";
+
+        // Gallery Manager
+        public static string GalleryCreated = "Galeri eklendi";
+        public static string GalleryUpdated = "Galeri güncellendi";
+        public static string GalleryDeleted = "Galeri silindi";
     }
 }
