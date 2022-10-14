@@ -17,6 +17,6 @@ namespace Entities.DTOs
         public bool Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public bool Status { get; set; }
-        public float Meter { get; set; }
+        public double Meter { get; set; }
     }
 }
