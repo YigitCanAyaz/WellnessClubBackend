@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
 using Core.DependencyResolvers;
@@ -54,6 +55,10 @@ namespace WebAPI
                 options.RegisterModule(new AutofacBusinessModule());
             });
 
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SupportNonNullableReferenceTypes();
+            });
 
 
             var app = builder.Build();
@@ -63,6 +68,7 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
 
             app.ConfigureCustomExceptionMiddleware();
 
