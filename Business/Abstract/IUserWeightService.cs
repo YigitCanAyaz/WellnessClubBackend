@@ -15,6 +15,8 @@ namespace Business.Abstract
         IResult Update(UserWeight userWeight);
         IResult Delete(UserWeight userWeight);
 
+        IDataResult<int> GetAllUserWeightLength();
+
         IDataResult<List<UserWeightDetailDto>> GetAllUserWeightDetails();
         IDataResult<UserWeightDetailDto> GetUserWeightDetailsById(int id);
     }
