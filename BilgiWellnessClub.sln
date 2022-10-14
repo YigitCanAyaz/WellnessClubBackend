@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{655F3E4D-B172-4F96-8FF1-11E9B77F1E62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{FDDEE8FC-F7D1-42A7-9353-2E69AA663295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{655F3E4D-B172-4F96-8FF1-11E9B77F1E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{655F3E4D-B172-4F96-8FF1-11E9B77F1E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{655F3E4D-B172-4F96-8FF1-11E9B77F1E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDDEE8FC-F7D1-42A7-9353-2E69AA663295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDEE8FC-F7D1-42A7-9353-2E69AA663295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDEE8FC-F7D1-42A7-9353-2E69AA663295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDEE8FC-F7D1-42A7-9353-2E69AA663295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
