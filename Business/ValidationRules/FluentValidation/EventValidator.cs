@@ -10,7 +10,10 @@ namespace Business.ValidationRules.FluentValidation
     {
         public EventValidator()
         {
-            // RuleFor().();
+            RuleFor(e => e.Title).NotEmpty();
+            RuleFor(e => e.Description).NotEmpty();
+            RuleFor(e => e.ImagePath).NotEmpty();
+            RuleFor(e => e.Date).NotEmpty();
         }
     }
 }

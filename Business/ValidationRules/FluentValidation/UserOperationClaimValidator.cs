@@ -11,7 +11,6 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserOperationClaimValidator()
         {
-            // RuleFor().();
             RuleFor(u => u.UserId).NotEmpty();
             RuleFor(u => u.OperationClaimId).NotEmpty();
         }

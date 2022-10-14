@@ -10,7 +10,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CollaborationValidator()
         {
-            // RuleFor().();
+           RuleFor(c => c.Title).NotEmpty();
+           RuleFor(c => c.Description).NotEmpty();
+           RuleFor(c => c.ImagePath).NotEmpty();
         }
     }
 }

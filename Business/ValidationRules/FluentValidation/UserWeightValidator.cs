@@ -11,7 +11,6 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserWeightValidator()
         {
-            // RuleFor().();
             RuleFor(u => u.UserId).NotEmpty();
             RuleFor(u => u.WeightId).NotEmpty();
         }

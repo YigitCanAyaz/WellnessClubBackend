@@ -11,7 +11,6 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserHeightValidator()
         {
-            // RuleFor().();
             RuleFor(u => u.UserId).NotEmpty();
             RuleFor(u => u.HeightId).NotEmpty();
         }

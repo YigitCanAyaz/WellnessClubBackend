@@ -10,7 +10,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public RecipeValidator()
         {
-            // RuleFor().();
+            RuleFor(e => e.Title).NotEmpty();
+            RuleFor(e => e.Description).NotEmpty();
+            RuleFor(e => e.ImagePath).NotEmpty();
         }
     }
 }

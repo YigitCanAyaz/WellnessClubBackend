@@ -10,7 +10,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public HeightValidator()
         {
-            // RuleFor().();
+            RuleFor(h => h.Meter).NotEmpty();
         }
     }
 }

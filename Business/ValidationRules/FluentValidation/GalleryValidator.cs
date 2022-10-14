@@ -10,7 +10,8 @@ namespace Business.ValidationRules.FluentValidation
     {
         public GalleryValidator()
         {
-            // RuleFor().();
+            RuleFor(g => g.ImagePath).NotEmpty();
+            RuleFor(g => g.ImageName).NotEmpty();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Business.ValidationRules.FluentValidation
     {
         public WeightValidator()
         {
-            // RuleFor().();
+            RuleFor(w => w.Kilogram).NotEmpty();
         }
     }
 }
