@@ -12,27 +12,27 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserHeightDal : EfEntityRepositoryBase<UserHeight, WellnessClubContext>, IUserHeightDal
+    public class EfUserWeightDal : EfEntityRepositoryBase<UserWeight, WellnessClubContext>, IUserWeightDal
     {
-        public List<UserHeightDetailDto> GetAllUserHeightDetails(Expression<Func<UserHeightDetailDto, bool>> filter = null)
+        public List<UserWeightDetailDto> GetAllUserWeightDetails(Expression<Func<UserWeightDetailDto, bool>> filter = null)
         {
             using (WellnessClubContext context = new WellnessClubContext())
             {
-                var result = (from userHeight in context.UserHeights
-                              join user in context.Users on userHeight.UserId equals user.Id
-                              join height in context.Heights on userHeight.HeightId equals height.Id
-                              select new UserHeightDetailDto
+                var result = (from userWeight in context.UserWeights
+                              join user in context.Users on userWeight.UserId equals user.Id
+                              join weight in context.Weights on userWeight.WeightId equals weight.Id
+                              select new UserWeightDetailDto
                               {
-                                  Id = userHeight.Id,
+                                  Id = userWeight.Id,
                                   UserId = user.Id,
-                                  HeightId = height.Id,
+                                  WeightId = weight.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Meter = height.Meter
+                                  Kilogram = weight.Kilogram
 
                               });
 
@@ -40,25 +40,25 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public UserHeightDetailDto GetUserHeightDetails(Expression<Func<UserHeightDetailDto, bool>> filter)
+        public UserWeightDetailDto GetUserWeightDetails(Expression<Func<UserWeightDetailDto, bool>> filter)
         {
             using (WellnessClubContext context = new WellnessClubContext())
             {
-                var result = (from userHeight in context.UserHeights
-                              join user in context.Users on userHeight.UserId equals user.Id
-                              join height in context.Heights on userHeight.HeightId equals height.Id
-                              select new UserHeightDetailDto
+                var result = (from userWeight in context.UserWeights
+                              join user in context.Users on userWeight.UserId equals user.Id
+                              join weight in context.Weights on userWeight.WeightId equals weight.Id
+                              select new UserWeightDetailDto
                               {
-                                  Id = userHeight.Id,
+                                  Id = userWeight.Id,
                                   UserId = user.Id,
-                                  HeightId = height.Id,
+                                  WeightId = weight.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Meter = height.Meter
+                                  Kilogram = weight.Kilogram
 
                               });
 
