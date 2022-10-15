@@ -22,12 +22,6 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CollaborationManager>().As<ICollaborationService>().SingleInstance();
             builder.RegisterType<EfCollaborationDal>().As<ICollaborationDal>().SingleInstance();
 
-            builder.RegisterType<WeightManager>().As<IWeightService>().SingleInstance();
-            builder.RegisterType<EfWeightDal>().As<IWeightDal>().SingleInstance();
-
-            builder.RegisterType<HeightManager>().As<IHeightService>().SingleInstance();
-            builder.RegisterType<EfHeightDal>().As<IHeightDal>().SingleInstance();
-
             builder.RegisterType<EventManager>().As<IEventService>().SingleInstance();
             builder.RegisterType<EfEventDal>().As<IEventDal>().SingleInstance();
 

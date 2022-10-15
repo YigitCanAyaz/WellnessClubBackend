@@ -20,19 +20,17 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = (from userWeight in context.UserWeights
                               join user in context.Users on userWeight.UserId equals user.Id
-                              join weight in context.Weights on userWeight.WeightId equals weight.Id
                               select new UserWeightDetailDto
                               {
                                   Id = userWeight.Id,
                                   UserId = user.Id,
-                                  WeightId = weight.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Kilogram = weight.Kilogram
+                                  Kilogram = userWeight.Kilogram
 
                               });
 
@@ -46,19 +44,17 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = (from userWeight in context.UserWeights
                               join user in context.Users on userWeight.UserId equals user.Id
-                              join weight in context.Weights on userWeight.WeightId equals weight.Id
                               select new UserWeightDetailDto
                               {
                                   Id = userWeight.Id,
                                   UserId = user.Id,
-                                  WeightId = weight.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Kilogram = weight.Kilogram
+                                  Kilogram = userWeight.Kilogram
 
                               });
 

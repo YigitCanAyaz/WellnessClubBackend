@@ -19,11 +19,9 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Collaboration> Collaborations { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
-        public DbSet<Height> Heights { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<UserHeight> UserHeights { get; set; }
         public DbSet<UserWeight> UserWeights { get; set; }
-        public DbSet<Weight> Weights { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }

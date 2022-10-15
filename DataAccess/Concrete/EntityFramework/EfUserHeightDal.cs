@@ -20,19 +20,17 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = (from userHeight in context.UserHeights
                               join user in context.Users on userHeight.UserId equals user.Id
-                              join height in context.Heights on userHeight.HeightId equals height.Id
                               select new UserHeightDetailDto
                               {
                                   Id = userHeight.Id,
                                   UserId = user.Id,
-                                  HeightId = height.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Meter = height.Meter
+                                  Meter = userHeight.Meter
 
                               });
 
@@ -46,19 +44,17 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = (from userHeight in context.UserHeights
                               join user in context.Users on userHeight.UserId equals user.Id
-                              join height in context.Heights on userHeight.HeightId equals height.Id
                               select new UserHeightDetailDto
                               {
                                   Id = userHeight.Id,
                                   UserId = user.Id,
-                                  HeightId = height.Id,
                                   FirstName = user.FirstName,
                                   LastName = user.LastName,
                                   Email = user.Email,
                                   Gender = user.Gender,
                                   BirthDate = user.BirthDate,
                                   Status = user.Status,
-                                  Meter = height.Meter
+                                  Meter = userHeight.Meter
 
                               });
 

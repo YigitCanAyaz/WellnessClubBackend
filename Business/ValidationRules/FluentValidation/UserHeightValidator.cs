@@ -12,7 +12,7 @@ namespace Business.ValidationRules.FluentValidation
         public UserHeightValidator()
         {
             RuleFor(u => u.UserId).NotEmpty();
-            RuleFor(u => u.HeightId).NotEmpty();
+            RuleFor(u => u.Meter).NotEmpty();
         }
     }
 }

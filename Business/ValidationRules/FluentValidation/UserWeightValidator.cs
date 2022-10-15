@@ -12,7 +12,7 @@ namespace Business.ValidationRules.FluentValidation
         public UserWeightValidator()
         {
             RuleFor(u => u.UserId).NotEmpty();
-            RuleFor(u => u.WeightId).NotEmpty();
+            RuleFor(u => u.Kilogram).NotEmpty();
         }
     }
 }

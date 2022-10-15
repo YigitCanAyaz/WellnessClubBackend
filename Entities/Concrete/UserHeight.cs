@@ -11,6 +11,6 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int HeightId { get; set; }
+        public double Meter { get; set; }
     }
 }
