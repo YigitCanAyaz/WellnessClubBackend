@@ -74,5 +74,15 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<int>(_userHeightDal.GetAll().Count);
         }
+
+        public IDataResult<List<UserHeight>> GetAllUserHeightsByUserId(int userId)
+        {
+            return new SuccessDataResult<List<UserHeight>>(_userHeightDal.GetAll(u => u.UserId == userId));
+        }
+
+        public IDataResult<List<UserHeightDetailDto>> GetAllUserHeightDetailsByUserId(int userId)
+        {
+            return new SuccessDataResult<List<UserHeightDetailDto>>(_userHeightDal.GetAllUserHeightDetails(u => u.UserId == userId));
+        }
     }
 }

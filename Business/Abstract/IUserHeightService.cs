@@ -15,9 +15,11 @@ namespace Business.Abstract
         IResult Update(UserHeight userHeight);
         IResult Delete(UserHeight userHeight);
 
+        IDataResult<List<UserHeight>> GetAllUserHeightsByUserId(int userId);
         IDataResult<int> GetAllUserHeightLength();
 
         IDataResult<List<UserHeightDetailDto>> GetAllUserHeightDetails();
+        IDataResult<List<UserHeightDetailDto>> GetAllUserHeightDetailsByUserId(int userId);
         IDataResult<UserHeightDetailDto> GetUserHeightDetailsById(int id);
     }
 }

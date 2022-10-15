@@ -109,5 +109,27 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getalluserheightsbyuserid")]
+        public IActionResult GetAllUserHeightsByUserId(int userId)
+        {
+            var result = _userHeightService.GetAllUserHeightsByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalluserheightdetailsbyuserid")]
+        public IActionResult GetAllUserHeightDetailsByUserId(int userId)
+        {
+            var result = _userHeightService.GetAllUserHeightDetailsByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

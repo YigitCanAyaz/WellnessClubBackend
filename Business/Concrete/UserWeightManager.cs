@@ -12,6 +12,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Entities.DTOs;
+using DataAccess.Concrete.EntityFramework;
 
 namespace Business.Concrete
 {
@@ -64,6 +65,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<UserWeightDetailDto>>(_userWeightDal.GetAllUserWeightDetails());
         }
+
         public IDataResult<UserWeightDetailDto> GetUserWeightDetailsById(int id)
         {
             return new SuccessDataResult<UserWeightDetailDto>(_userWeightDal.GetUserWeightDetails(m => m.Id == id));
@@ -72,6 +74,16 @@ namespace Business.Concrete
         public IDataResult<int> GetAllUserWeightLength()
         {
             return new SuccessDataResult<int>(_userWeightDal.GetAll().Count);
+        }
+
+        public IDataResult<List<UserWeight>> GetAllUserWeightsByUserId(int userId)
+        {
+            return new SuccessDataResult<List<UserWeight>>(_userWeightDal.GetAll(u => u.UserId == userId));
+        }
+
+        public IDataResult<List<UserWeightDetailDto>> GetAllUserWeightDetailsByUserId(int userId)
+        {
+            return new SuccessDataResult<List<UserWeightDetailDto>>(_userWeightDal.GetAllUserWeightDetails(u => u.UserId == userId));
         }
     }
 }
