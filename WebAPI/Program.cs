@@ -60,6 +60,8 @@ namespace WebAPI
                 options.SupportNonNullableReferenceTypes();
             });
 
+            builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
 
             var app = builder.Build();
 
