@@ -34,6 +34,9 @@ namespace Business.Constants.Messages
         // User Manager
         public static string UserCreated = "Kullanıcı yaratıldı";
         public static string AccessTokenCreated = "Token yaratıldı";
+        public static string UserUpdated = "Kullanıcı güncellendi";
+        public static string PasswordUpdated = "Şifre güncellendi";
+        public static string UserDeleted = "Kullanıcı silindi";
 
         // Weight Manager
         public static string WeightCreated = "Kilo eklendi";

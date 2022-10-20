@@ -10,6 +10,10 @@ using System.Text;
 using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Entities.DTOs;
+using Core.Utilities.Security.Hashing;
+using Core.Aspects.Autofac.Transaction;
+using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
 
 namespace Business.Concrete
 {
@@ -49,5 +53,37 @@ namespace Business.Concrete
             return new SuccessDataResult<UserForInfoDto>(_userDal.GetUserDetails(u => u.Id == id));
         }
 
+        public IResult ChangePassword(ChangePasswordDto user)
+        {
+            var userToUpdate = GetByMail(user.Email).Data;
+
+            if (HashingHelper.VerifyPasswordHash(user.OldPassword, userToUpdate.PasswordHash, userToUpdate.PasswordSalt))
+            {
+                byte[] passwordHash, passwordSalt;
+                HashingHelper.CreatePasswordHash(user.NewPassword, out passwordHash, out passwordSalt);
+                userToUpdate.PasswordHash = passwordHash;
+                userToUpdate.PasswordSalt = passwordSalt;
+                _userDal.Update(userToUpdate);
+                return new SuccessResult(Messages.PasswordUpdated);
+            }
+            return new ErrorResult(Messages.PasswordError);
+        }
+
+        public IResult Update(UserForInfoDto user)
+        {
+            var userToUpdate = GetByMail(user.Email).Data;
+
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.LastName = user.LastName;
+            _userDal.Update(userToUpdate);
+            return new SuccessResult(Messages.UserUpdated);
+        }
+
+        [TransactionScopeAspect()]
+        public IResult Delete(User user)
+        {
+            _userDal.Delete(user);
+            return new SuccessResult(Messages.UserDeleted);
+        }
     }
 }
