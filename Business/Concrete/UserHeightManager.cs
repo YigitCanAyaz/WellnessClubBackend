@@ -13,6 +13,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Entities.DTOs;
 using DataAccess.Concrete.EntityFramework;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -33,6 +34,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserHeightCreated);
         }
 
+        [TransactionScopeAspect()]
         [CacheRemoveAspect("IUserHeightService.Get")]
         public IResult Delete(UserHeight userHeight)
         {

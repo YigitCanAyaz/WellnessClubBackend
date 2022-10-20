@@ -11,6 +11,7 @@ using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Helpers;
 using Microsoft.AspNetCore.Http;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -40,6 +41,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RecipeCreated);
         }
 
+        [TransactionScopeAspect()]
         [CacheRemoveAspect("IRecipeService.Get")]
         public IResult Delete(Recipe recipe)
         {

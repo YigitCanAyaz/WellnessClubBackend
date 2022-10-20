@@ -11,6 +11,7 @@ using Business.Constants.Messages;
 using Core.Aspects.Autofac.Caching;
 using Microsoft.AspNetCore.Http;
 using Core.Utilities.Helpers;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -40,6 +41,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CollaborationCreated);
         }
 
+        [TransactionScopeAspect()]
         [CacheRemoveAspect("ICollaborationService.Get")]
         public IResult Delete(Collaboration collaboration)
         {

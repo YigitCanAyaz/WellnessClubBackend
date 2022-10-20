@@ -12,6 +12,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Entities.DTOs;
+using Core.Aspects.Autofac.Transaction;
 
 namespace Business.Concrete
 {
@@ -32,6 +33,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserOperationClaimCreated);
         }
 
+        [TransactionScopeAspect()]
         [CacheRemoveAspect("IUserOperationClaimService.Get")]
         public IResult Delete(UserOperationClaim userOperationClaim)
         {
