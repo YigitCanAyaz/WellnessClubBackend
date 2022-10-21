@@ -102,5 +102,11 @@ namespace Business.Concrete
             _userDal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
         }
+
+        [CacheAspect]
+        public IDataResult<int> GetAllUserLength()
+        {
+            return new SuccessDataResult<int>(_userDal.GetAll().Count);
+        }
     }
 }

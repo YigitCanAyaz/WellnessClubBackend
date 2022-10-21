@@ -17,5 +17,7 @@ namespace Business.Abstract
 
         IDataResult<List<UserOperationClaimDetailDto>> GetAllUserOperationClaimDetails();
         IDataResult<UserOperationClaimDetailDto> GetUserOperationClaimDetailsById(int id);
+
+        IDataResult<int> GetAllOperationClaimLength();
     }
 }

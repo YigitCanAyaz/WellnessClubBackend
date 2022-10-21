@@ -13,5 +13,7 @@ namespace Business.Abstract
         IResult Add(OperationClaim operationClaim);
         IResult Update(OperationClaim operationClaim);
         IResult Delete(OperationClaim operationClaim);
+
+        IDataResult<int> GetAllOperationClaimLength();
     }
 }

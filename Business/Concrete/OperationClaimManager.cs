@@ -12,6 +12,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Aspects.Autofac.Transaction;
+using DataAccess.Concrete.EntityFramework;
 
 namespace Business.Concrete
 {
@@ -61,6 +62,12 @@ namespace Business.Concrete
         {
             _operationClaimDal.Update(OperationClaim);
             return new SuccessResult(Messages.OperationClaimUpdated);
+        }
+
+        [CacheAspect]
+        public IDataResult<int> GetAllOperationClaimLength()
+        {
+            return new SuccessDataResult<int>(_operationClaimDal.GetAll().Count);
         }
     }
 }

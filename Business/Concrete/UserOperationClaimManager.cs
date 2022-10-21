@@ -13,6 +13,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Entities.DTOs;
 using Core.Aspects.Autofac.Transaction;
+using DataAccess.Concrete.EntityFramework;
 
 namespace Business.Concrete
 {
@@ -69,6 +70,12 @@ namespace Business.Concrete
         public IDataResult<UserOperationClaimDetailDto> GetUserOperationClaimDetailsById(int id)
         {
             return new SuccessDataResult<UserOperationClaimDetailDto>(_userOperationClaimDal.GetUserOperationClaimDetails(m => m.Id == id));
+        }
+
+        [CacheAspect]
+        public IDataResult<int> GetAllUserOperationClaimLength()
+        {
+            return new SuccessDataResult<int>(_userOperationClaimDal.GetAll().Count);
         }
     }
 }
