@@ -25,6 +25,7 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect("IOperationClaimService.GetAll")]
+        [CacheRemoveAspect("IUserOperationClaimService.GetAll")]
         [ValidationAspect(typeof(OperationClaimValidator))]
         public IResult Add(OperationClaim operationClaim)
         {
@@ -34,6 +35,7 @@ namespace Business.Concrete
 
         [TransactionScopeAspect()]
         [CacheRemoveAspect("IOperationClaimService.Get")]
+        [CacheRemoveAspect("IUserOperationClaimService.Get")]
         public IResult Delete(OperationClaim OperationClaim)
         {
             _operationClaimDal.Delete(OperationClaim);
@@ -53,6 +55,7 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect("IOperationClaimService.Get")]
+        [CacheRemoveAspect("IUserOperationClaimService.Get")]
         [ValidationAspect(typeof(OperationClaimValidator))]
         public IResult Update(OperationClaim OperationClaim)
         {

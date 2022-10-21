@@ -14,6 +14,7 @@ using Core.Utilities.Security.Hashing;
 using Core.Aspects.Autofac.Transaction;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Core.Aspects.Autofac.Caching;
 
 namespace Business.Concrete
 {
@@ -26,33 +27,42 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [CacheAspect]
         public IDataResult<List<OperationClaim>> GetAllClaims(User user)
         {
             return new SuccessDataResult<List<OperationClaim>>(_userDal.GetAllClaims(user));
         }
 
+        [CacheRemoveAspect("IUserService.GetAll")]
         public IResult Add(User user)
         {
             _userDal.Add(user);
             return new SuccessResult(Messages.UserCreated);
         }
 
+        [CacheAspect]
         public IDataResult<User> GetByMail(string email)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
         }
 
         //[SecuredOperation("admin")]
+        [CacheAspect]
         public IDataResult<List<UserForInfoDto>> GetAll()
         {
             return new SuccessDataResult<List<UserForInfoDto>>(_userDal.GetAllUserDetails());
         }
 
+        [CacheAspect]
         public IDataResult<UserForInfoDto> GetById(int id)
         {
             return new SuccessDataResult<UserForInfoDto>(_userDal.GetUserDetails(u => u.Id == id));
         }
 
+        [CacheRemoveAspect("IUserService.Get")]
+        [CacheRemoveAspect("IUserHeightService.Get")]
+        [CacheRemoveAspect("IUserWeightService.Get")]
+        [CacheRemoveAspect("IUserOperationClaimService.Get")]
         public IResult ChangePassword(ChangePasswordDto user)
         {
             var userToUpdate = GetByMail(user.Email).Data;
@@ -69,6 +79,10 @@ namespace Business.Concrete
             return new ErrorResult(Messages.PasswordError);
         }
 
+        [CacheRemoveAspect("IUserService.Get")]
+        [CacheRemoveAspect("IUserHeightService.Get")]
+        [CacheRemoveAspect("IUserWeightService.Get")]
+        [CacheRemoveAspect("IUserOperationClaimService.Get")]
         public IResult Update(UserForInfoDto user)
         {
             var userToUpdate = GetByMail(user.Email).Data;
@@ -79,7 +93,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserUpdated);
         }
 
-        [TransactionScopeAspect()]
+        [CacheRemoveAspect("IUserService.Get")]
+        [CacheRemoveAspect("IUserHeightService.Get")]
+        [CacheRemoveAspect("IUserWeightService.Get")]
+        [CacheRemoveAspect("IUserOperationClaimService.Get")]
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
