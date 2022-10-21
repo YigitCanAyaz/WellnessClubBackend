@@ -24,7 +24,7 @@ namespace Business.Constants.Messages
         // UserWeight Manager
         public static string UserWeightCreated = "Kullanıcı kilosu eklendi";
         public static string UserWeightUpdated = "Kullanıcı kilosu güncellendi";
-        public static string UserWeightDeleted = "Kullanıcı kilosu delsilindieted";
+        public static string UserWeightDeleted = "Kullanıcı kilosu silindi";
 
         // UserHeight Manager
         public static string UserHeightCreated = "Kullanıcı boyu eklendi";
