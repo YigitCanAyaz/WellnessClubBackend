@@ -75,5 +75,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getalloperationclaimlength")]
+        public IActionResult GetAllUserLength()
+        {
+            var result = _operationClaimService.GetAllOperationClaimLength();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
