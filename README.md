@@ -10,6 +10,9 @@ This project is the backend application of the Bilgi University Wellness Club.
 # Layers
 Business, Core, DataAccess, Entities, WebAPI
 
+# Aspects
+Caching, Performance, Transaction, Validation, Security
+
 # Business Structure
 ![Screenshot_23](https://user-images.githubusercontent.com/54958108/197277821-1dc91f0d-475a-4adf-8477-cd5799822ef6.png)
 
