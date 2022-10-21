@@ -64,4 +64,34 @@ $ cd WellnessClubBackend.git
 # Install dependencies
 $ dotnet restore
 ```
+# API'S
 
+# Auth API
+![Screenshot_28](https://user-images.githubusercontent.com/54958108/197280222-e800291b-f797-47ac-b7c8-5645e17b2d8c.png)
+
+# Collaboration API
+![Screenshot_29](https://user-images.githubusercontent.com/54958108/197280257-d1c1859e-72df-4854-a6fc-506fa4f4535b.png)
+
+# Event API
+![Screenshot_30](https://user-images.githubusercontent.com/54958108/197280291-7540cbac-c3b4-4be1-b041-c6a7c30f89ed.png)
+
+# Gallery API
+![Screenshot_31](https://user-images.githubusercontent.com/54958108/197280311-de71d0a8-6476-41ea-b5aa-42b70557f7d2.png)
+
+# Operation Claim API
+![Screenshot_32](https://user-images.githubusercontent.com/54958108/197280354-159f3c71-f6d7-41e4-ae4c-809dab86889d.png)
+
+# Recipe API
+![Screenshot_33](https://user-images.githubusercontent.com/54958108/197280365-490361da-17fd-4096-aaf7-471c65cf015e.png)
+
+# User Height API
+![Screenshot_34](https://user-images.githubusercontent.com/54958108/197280390-d381709f-6f2f-492e-b9f4-162b76d91b0d.png)
+
+# User Weight API
+![Screenshot_37](https://user-images.githubusercontent.com/54958108/197280438-2ca0d3e2-1aff-4a09-9091-482344601e10.png)
+
+# User Operation Claim API
+![Screenshot_35](https://user-images.githubusercontent.com/54958108/197280504-dafcc6df-fab5-4522-96fc-5a9b4fd0366f.png)
+
+# User API
+![Screenshot_36](https://user-images.githubusercontent.com/54958108/197280531-dab9758a-b16f-4253-b93c-788b4d9a6884.png)
