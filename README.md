@@ -7,6 +7,20 @@ This project is the backend application of the Bilgi University Wellness Club.
 
 [Click here to view Database of the project](https://github.com/YigitCanAyaz/WellnessClubDatabase "Database")
 
+## Proje Setup and Usage
+
+Open terminal and write these commands :
+
+```bash
+# Cloning repository
+$ git clone https://github.com/YigitCanAyaz/WellnessClubBackend
+# Go to cloned repository
+$ cd WellnessClubBackend.git
+
+# Install dependencies
+$ dotnet restore
+```
+
 ## Aspects
 Caching, Performance, Transaction, Validation, Security
 
@@ -49,21 +63,6 @@ Business, Core, DataAccess, Entities, WebAPI
 | Swashbuckle.AspNetCore | 6.4.0 |
 | System.IdentityModel.Tokens.Jwt | 6.23.1 |
 
-
-
-## Proje Setup and Usage
-
-Open terminal and write these commands :
-
-```bash
-# Cloning repository
-$ git clone https://github.com/YigitCanAyaz/WellnessClubBackend
-# Go to cloned repository
-$ cd WellnessClubBackend.git
-
-# Install dependencies
-$ dotnet restore
-```
 # API'S
 
 # Auth API
